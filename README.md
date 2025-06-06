@@ -19,19 +19,32 @@ Key technologies:
 
 ```
 federated-kidney-diagnosis/
-├── client1/               # First FL client
-│   ├── client.py
+├── client1/            # First FL client
+|   ├──app/               
+│      ├── client.py
+|      ├── utils.py           
+│   ├── dataset
+|      ├── client1_data.csv
+│   |── Dockerfile
 │   └── requirements.txt
-├── client2/               # Second FL client
+├── client2/            # Second FL client
+|   ├──app/               
+│      ├── client.py
+|      ├── utils.py           
+│   ├── dataset
+|       ├── client2_data.csv
+│   |── Dockerfile
+│   └── requirements.txt
 ├── server/                # FL server logic
 │   ├── server.py
+|   |── Dockerfile
 │   └── requirements.txt
 ├── monitoring/
 │   ├── prometheus/
 │   │   └── prometheus.yml
-│   └── grafana/
+│    
 ├── docker-compose.yml     # Multi-container orchestration
-└── README.md              # You're here
+└── README.md             
 ```
 
 ---
@@ -64,7 +77,7 @@ docker-compose up --build
 
 ### 3. Access dashboards
 
-* 🌐 Flower server: [http://localhost:8085](http://localhost:8085)
+* 🌐 Flower server: [http://localhost:8085](http://localhost:8080)
 * 📈 Prometheus: [http://localhost:9090](http://localhost:9090)
 * 📋 Grafana: [http://localhost:3000](http://localhost:3000)
 
