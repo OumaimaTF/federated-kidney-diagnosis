@@ -50,7 +50,7 @@ federated-kidney-diagnosis/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/federated-kidney-diagnosis.git
+git clone https://github.com/OumaimaTF/federated-kidney-diagnosis.git
 cd federated-kidney-diagnosis
 ```
 
@@ -82,7 +82,7 @@ docker-compose up --build
 
 ## 📚 Dataset
 
-Used: [Chronic Kidney Disease Dataset (Kaggle)](https://www.kaggle.com/datasets/mansoordaku/ckdisease)
+Used: [Chronic Kidney Disease Dataset (Kaggle)](https://www.kaggle.com/datasets/rabieelkharoua/chronic-kidney-disease-dataset-analysis/data)
 
 ---
 
@@ -98,7 +98,7 @@ Used: [Chronic Kidney Disease Dataset (Kaggle)](https://www.kaggle.com/datasets/
 
 ## 🧑‍💻 Author
 
-**Oumaima**
+**Oumaima Toufali**
 
 * GitHub: [@OumaimaTF](https://github.com/OumaimaTF)
   
