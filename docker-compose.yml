@@ -1,0 +1,71 @@
+services:
+  server:
+    build: ./server
+    container_name: fl_server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/app
+    networks:
+      - flnet
+
+  client1:
+    build: ./client1
+    container_name: fl_client1
+    depends_on:
+      - server
+      - pushgateway
+    volumes:
+      - ./client1:/app
+    networks:
+      - flnet
+
+  client2:
+    build: ./client2
+    container_name: fl_client2
+    depends_on:
+      - server
+      - pushgateway
+    volumes:
+      - ./client2:/app
+    networks:
+      - flnet
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - flnet
+    depends_on:
+      - pushgateway
+
+  pushgateway:
+    image: prom/pushgateway
+    container_name: pushgateway
+    ports:
+      - "9091:9091"
+    networks:
+      - flnet
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitoring/grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    networks:
+      - flnet
+
+networks:
+  flnet:
+    driver: bridge
