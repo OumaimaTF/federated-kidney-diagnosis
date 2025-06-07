@@ -99,6 +99,35 @@ Used: [Chronic Kidney Disease Dataset (Kaggle)](https://www.kaggle.com/datasets/
 
 ---
 
+## 🧭 Plan d’exécution
+
+Voici un résumé des étapes que le système suit à l'exécution :
+
+1. **Démarrage de l’infrastructure** via Docker Compose :
+   - Lancement du serveur Flower
+   - Lancement de 2 clients FL simulant des centres médicaux
+   - Démarrage de Prometheus, Grafana et Pushgateway
+
+2. **Connexion FL** :
+   - Les clients s’enregistrent auprès du serveur
+   - Le serveur orchestre les rounds de fédération via l’algorithme FedAvg
+
+3. **Entraînement fédéré** :
+   - Chaque client entraîne un modèle `MLPClassifier` localement
+   - Les poids sont envoyés au serveur, qui les agrège
+
+4. **Monitoring des performances** :
+   - Les clients et le serveur exposent des métriques via Prometheus Pushgateway
+   - Grafana affiche l’évolution des métriques (accuracy, loss, etc.) en temps réel
+
+5. **Arrêt** :
+   - Pour tout stopper proprement :
+     ```bash
+     docker-compose down
+     ```
+
+---
+
 ## 🏗️ Built With
 
 * [Flower](https://flower.dev/)
