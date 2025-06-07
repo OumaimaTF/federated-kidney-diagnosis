@@ -77,7 +77,7 @@ docker-compose up --build
 
 ### 3. Access dashboards
 
-* 🌐 Flower server: [http://localhost:8085](http://localhost:8080)
+* 🌐 Flower server: [http://localhost:8080](http://localhost:8080)
 * 📈 Prometheus: [http://localhost:9090](http://localhost:9090)
 * 📋 Grafana: [http://localhost:3000](http://localhost:3000)
 
